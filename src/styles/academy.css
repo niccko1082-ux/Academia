@@ -619,9 +619,9 @@
 
 /* ========== LECCION VIEW ========== */
 .leccion-view {
-    max-width: 900px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1.5rem 2rem;
     position: relative;
     z-index: 1;
 }
@@ -654,8 +654,8 @@
 }
 
 .leccion-contenido {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 1.5rem;
 }
 
@@ -2317,4 +2317,346 @@
     border-radius: 20px;
     font-size: 0.85rem;
     margin-left: 0.5rem;
+}
+
+/* ========== INTERACTIVE CONSOLE ========== */
+.interactive-console {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    align-items: stretch;
+}
+
+.interactive-console>* {
+    flex: 1;
+    min-width: 0;
+}
+
+.console-editor {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.console-editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.console-editor-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #a1a1aa;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.console-editor-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.console-textarea {
+    width: 100%;
+    min-height: 400px;
+    height: auto;
+    padding: 1.25rem;
+    background: transparent;
+    border: none;
+    color: #e4e4e7;
+    font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    resize: vertical;
+    outline: none;
+    overflow-y: visible;
+    field-sizing: content;
+}
+
+.console-textarea::placeholder {
+    color: #52525b;
+}
+
+.console-editor-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.console-hint {
+    color: #71717a;
+    font-size: 0.85rem;
+}
+
+.console-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.console-btn-reset {
+    background: rgba(255, 255, 255, 0.05);
+    color: #a1a1aa;
+}
+
+.console-btn-reset:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.console-btn-run {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+}
+
+.console-btn-run:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+}
+
+.console-btn-run.running {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+.console-btn-clear {
+    background: rgba(255, 255, 255, 0.05);
+    color: #a1a1aa;
+}
+
+.console-btn-clear:hover {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+/* Console Output */
+.console-output {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.console-output.status-success {
+    border-color: rgba(16, 185, 129, 0.4);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+}
+
+.console-output.status-error {
+    border-color: rgba(239, 68, 68, 0.4);
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.1);
+}
+
+.console-output-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.console-output-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #a1a1aa;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.console-output-title .status-icon.success {
+    color: #10b981;
+}
+
+.console-output-title .status-icon.error {
+    color: #ef4444;
+}
+
+.console-output-body {
+    min-height: 100px;
+    padding: 1.25rem;
+}
+
+.console-empty {
+    color: #52525b;
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+.console-line {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.console-prefix {
+    color: #10b981;
+    user-select: none;
+    font-weight: 600;
+}
+
+.console-message {
+    margin: 0;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.console-log .console-message {
+    color: #10b981;
+}
+
+.console-error .console-message {
+    color: #ef4444;
+}
+
+.console-warn .console-message {
+    color: #f59e0b;
+}
+
+.console-info .console-message {
+    color: #60a5fa;
+}
+
+.console-success-banner,
+.console-error-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.console-success-banner {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+    border-top: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.console-error-banner {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    border-top: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.console-warning-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    background: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
+    border-top: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.console-output.status-incorrect {
+    border-color: rgba(245, 158, 11, 0.4);
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.1);
+}
+
+.status-icon.warning {
+    color: #f59e0b;
+}
+
+.attempt-counter {
+    font-size: 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
+    margin-left: 0.5rem;
+}
+
+/* Sistema de pistas */
+.console-hints {
+    background: rgba(139, 92, 246, 0.1);
+    border-top: 1px solid rgba(139, 92, 246, 0.2);
+    padding: 1rem;
+}
+
+.hint-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #a78bfa;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+}
+
+.hint-content {
+    color: #e4e4e7;
+    line-height: 1.6;
+    padding: 0.75rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+.hint-more-btn {
+    margin-top: 0.75rem;
+    background: rgba(139, 92, 246, 0.2);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    color: #c4b5fd;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.hint-more-btn:hover {
+    background: rgba(139, 92, 246, 0.3);
+    color: #fff;
+}
+
+.console-hint-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.75rem;
+    background: rgba(139, 92, 246, 0.05);
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: #a1a1aa;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.console-hint-btn:hover {
+    background: rgba(139, 92, 246, 0.1);
+    color: #c4b5fd;
 }

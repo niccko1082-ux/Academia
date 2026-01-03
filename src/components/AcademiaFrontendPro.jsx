@@ -153,10 +153,10 @@ const AcademiaFrontendPro = () => {
     };
 
     const obtenerNivel = () => {
-        if (puntos >= 500) return '🏅 Senior';
-        if (puntos >= 200) return '🥈 Fullstack';
-        if (puntos >= 50) return '🥉 Junior';
-        return '🌱 Beginner';
+        if (puntos >= 500) return 'Senior';
+        if (puntos >= 200) return 'Fullstack';
+        if (puntos >= 50) return 'Junior';
+        return 'Beginner';
     };
 
     const navegarA = (nuevaVista, moduloId = null, leccionId = null) => {
@@ -187,7 +187,7 @@ const AcademiaFrontendPro = () => {
                     </button>
                 )}
                 <div className="stat-badge nivel-badge" style={{ borderColor: 'var(--accent-purple)' }}>
-                    <span className="stat-emoji">🏆</span>
+                    <Trophy size={18} />
                     <span>{obtenerNivel()}</span>
                 </div>
                 <div className="stat-badge puntos-badge">
@@ -308,7 +308,7 @@ const AcademiaFrontendPro = () => {
                 </main>
 
                 <footer className="academia-footer">
-                    <p>🎯 Completa todos los módulos para convertirte en Frontend Developer</p>
+                    <p>Completa todos los módulos para convertirte en Frontend Developer</p>
                 </footer>
 
                 <AIAssistant
@@ -378,7 +378,7 @@ const AcademiaFrontendPro = () => {
                         <div className="section-body">
                             {estructuraArchivos.archivosImportantes.map((archivo, i) => (
                                 <div key={i} className="archivo-item">
-                                    <h4>📄 {archivo.archivo}</h4>
+                                    <h4>{archivo.archivo}</h4>
                                     <p className="archivo-proposito">{archivo.proposito}</p>
                                     <CodeSection code={archivo.ejemplo} title={archivo.archivo} language="code" />
                                 </div>
@@ -444,7 +444,7 @@ const AcademiaFrontendPro = () => {
                         </button>
                     </div>
 
-                    <h3 className="lecciones-titulo">📚 Lecciones</h3>
+                    <h3 className="lecciones-titulo">Lecciones</h3>
 
                     <div className="lecciones-lista">
                         {modulo.lecciones.map((leccion, index) => {

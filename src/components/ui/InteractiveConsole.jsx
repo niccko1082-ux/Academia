@@ -1,20 +1,27 @@
 import { useState, useRef, useEffect } from 'react';
-import { Play, RotateCcw, CheckCircle, XCircle, Terminal, Trash2 } from 'lucide-react';
+import { Play, RotateCcw, CheckCircle, XCircle, Terminal, Trash2, Lightbulb, HelpCircle } from 'lucide-react';
 
 /**
  * Consola interactiva para ejecutar codigo JavaScript
  * Permite escribir, ejecutar y ver resultados en tiempo real
+ * Incluye validacion automatica y pistas para principiantes
  */
 const InteractiveConsole = ({
     initialCode = '',
     expectedOutput = null,
+    hints = [],
     onSuccess = null,
-    placeholder = '// Escribe tu codigo aqui...'
+    placeholder = '// Escribe tu codigo aqui...',
+    exerciseTitle = 'Ejercicio'
 }) => {
     const [code, setCode] = useState(initialCode);
     const [output, setOutput] = useState([]);
     const [isRunning, setIsRunning] = useState(false);
-    const [status, setStatus] = useState(null); // 'success' | 'error' | null
+    const [status, setStatus] = useState(null); // 'success' | 'error' | 'incorrect' | null
+    const [attempts, setAttempts] = useState(0);
+    const [showHint, setShowHint] = useState(false);
+    const [currentHint, setCurrentHint] = useState(0);
+    const [validationMessage, setValidationMessage] = useState('');
     const outputRef = useRef(null);
 
     // Scroll al final cuando hay nuevo output
@@ -24,11 +31,50 @@ const InteractiveConsole = ({
         }
     }, [output]);
 
+    // Reset hint cuando cambia el codigo
+    useEffect(() => {
+        setCode(initialCode);
+        setOutput([]);
+        setStatus(null);
+        setAttempts(0);
+        setShowHint(false);
+        setCurrentHint(0);
+    }, [initialCode]);
+
+    // Validar la salida del usuario
+    const validateOutput = (userOutput, expected) => {
+        if (!expected) return { valid: true, message: '' };
+
+        // Normalizar para comparacion (quitar espacios extras, convertir a minusculas para comparacion flexible)
+        const normalizedOutput = userOutput.trim().toLowerCase();
+        const normalizedExpected = expected.trim().toLowerCase();
+
+        // Verificar si la salida contiene lo esperado
+        if (normalizedOutput.includes(normalizedExpected)) {
+            return { valid: true, message: 'Excelente! Tu codigo es correcto.' };
+        }
+
+        // Verificar si al menos hay algo de output
+        if (userOutput.length > 0) {
+            return {
+                valid: false,
+                message: 'Casi! El resultado no es exactamente lo esperado. Revisa tu codigo.'
+            };
+        }
+
+        return {
+            valid: false,
+            message: 'Tu codigo no produjo ningun resultado. Asegurate de usar console.log()'
+        };
+    };
+
     // Funcion segura para ejecutar codigo
     const executeCode = () => {
         setIsRunning(true);
         setOutput([]);
         setStatus(null);
+        setValidationMessage('');
+        setAttempts(prev => prev + 1);
 
         const logs = [];
 
@@ -66,35 +112,76 @@ const InteractiveConsole = ({
 
             setOutput(logs);
 
-            // Verificar si el output coincide con lo esperado
+            // Validar si hay expectedOutput
             if (expectedOutput) {
                 const outputText = logs.map(l => l.message).join('\n');
-                if (outputText.includes(expectedOutput)) {
+                const validation = validateOutput(outputText, expectedOutput);
+
+                if (validation.valid) {
                     setStatus('success');
+                    setValidationMessage(validation.message);
                     if (onSuccess) onSuccess();
+                } else {
+                    setStatus('incorrect');
+                    setValidationMessage(validation.message);
+                    // Mostrar pista automaticamente despues de 2 intentos
+                    if (attempts >= 1 && hints.length > 0) {
+                        setShowHint(true);
+                    }
                 }
             } else if (logs.length > 0 && !logs.some(l => l.type === 'error')) {
                 setStatus('success');
+                setValidationMessage('Codigo ejecutado correctamente!');
                 if (onSuccess) onSuccess();
             }
         } catch (error) {
             logs.push({ type: 'error', message: `Error: ${error.message}` });
             setOutput(logs);
             setStatus('error');
+            setValidationMessage(getErrorHelp(error.message));
         }
 
         setIsRunning(false);
     };
 
+    // Ayuda contextual para errores comunes
+    const getErrorHelp = (errorMessage) => {
+        if (errorMessage.includes('is not defined')) {
+            const variable = errorMessage.split(' ')[0];
+            return `La variable "${variable}" no existe. Asegurate de haberla declarado con const o let.`;
+        }
+        if (errorMessage.includes('Unexpected token')) {
+            return 'Hay un error de sintaxis. Revisa que no falten comillas, parentesis o punto y coma.';
+        }
+        if (errorMessage.includes('Unexpected end of input')) {
+            return 'El codigo esta incompleto. Revisa que hayas cerrado todas las llaves {} y parentesis ().';
+        }
+        if (errorMessage.includes('is not a function')) {
+            return 'Estas intentando llamar algo que no es una funcion. Revisa el nombre.';
+        }
+        return 'Hay un error en tu codigo. Revisa la sintaxis cuidadosamente.';
+    };
+
     const clearOutput = () => {
         setOutput([]);
         setStatus(null);
+        setValidationMessage('');
     };
 
     const resetCode = () => {
         setCode(initialCode);
         setOutput([]);
         setStatus(null);
+        setAttempts(0);
+        setShowHint(false);
+        setCurrentHint(0);
+        setValidationMessage('');
+    };
+
+    const showNextHint = () => {
+        if (currentHint < hints.length - 1) {
+            setCurrentHint(prev => prev + 1);
+        }
     };
 
     const handleKeyDown = (e) => {
@@ -163,7 +250,9 @@ const InteractiveConsole = ({
                     <div className="console-output-title">
                         {status === 'success' && <CheckCircle size={16} className="status-icon success" />}
                         {status === 'error' && <XCircle size={16} className="status-icon error" />}
+                        {status === 'incorrect' && <HelpCircle size={16} className="status-icon warning" />}
                         <span>Consola</span>
+                        {attempts > 0 && <span className="attempt-counter">Intento #{attempts}</span>}
                     </div>
                     <button
                         className="console-btn console-btn-clear"
@@ -187,17 +276,58 @@ const InteractiveConsole = ({
                         ))
                     )}
                 </div>
+
+                {/* Banner de exito */}
                 {status === 'success' && (
                     <div className="console-success-banner">
                         <CheckCircle size={18} />
-                        <span>Codigo ejecutado correctamente</span>
+                        <span>{validationMessage || 'Codigo ejecutado correctamente!'}</span>
                     </div>
                 )}
+
+                {/* Banner de error */}
                 {status === 'error' && (
                     <div className="console-error-banner">
                         <XCircle size={18} />
-                        <span>Hay errores en tu codigo. Revisa e intenta de nuevo.</span>
+                        <span>{validationMessage || 'Hay un error en tu codigo.'}</span>
                     </div>
+                )}
+
+                {/* Banner de casi correcto */}
+                {status === 'incorrect' && (
+                    <div className="console-warning-banner">
+                        <HelpCircle size={18} />
+                        <span>{validationMessage}</span>
+                    </div>
+                )}
+
+                {/* Sistema de pistas */}
+                {showHint && hints.length > 0 && (
+                    <div className="console-hints">
+                        <div className="hint-header">
+                            <Lightbulb size={16} />
+                            <span>Pista {currentHint + 1} de {hints.length}</span>
+                        </div>
+                        <div className="hint-content">
+                            {hints[currentHint]}
+                        </div>
+                        {currentHint < hints.length - 1 && (
+                            <button className="hint-more-btn" onClick={showNextHint}>
+                                Necesito otra pista
+                            </button>
+                        )}
+                    </div>
+                )}
+
+                {/* Boton para pedir pista */}
+                {!showHint && hints.length > 0 && status !== 'success' && attempts > 0 && (
+                    <button
+                        className="console-hint-btn"
+                        onClick={() => setShowHint(true)}
+                    >
+                        <Lightbulb size={14} />
+                        <span>Necesito una pista</span>
+                    </button>
                 )}
             </div>
         </div>

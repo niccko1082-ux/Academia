@@ -20,16 +20,16 @@ export const modulos = [
     bgColor: 'rgba(245, 158, 11, 0.15)',
     descripcion: 'Aprende JavaScript desde cero, sin conocimientos previos',
     lecciones: [
-      { id: 0, titulo: '¡Bienvenido! Tu Primer Script' },
-      { id: 1, titulo: 'Variables y Tipos de Datos' },
-      { id: 2, titulo: 'Operadores y Condicionales' },
-      { id: 3, titulo: 'Funciones' },
-      { id: 4, titulo: 'Arrays y sus Métodos' },
-      { id: 5, titulo: 'Objetos' }
+      { id: 0, titulo: 'Tu Primer Programa' },
+      { id: 1, titulo: 'Variables: Guardando Informacion' },
+      { id: 2, titulo: 'Operaciones Matematicas' },
+      { id: 3, titulo: 'Comparaciones y Decisiones' },
+      { id: 4, titulo: 'Funciones: Codigo Reutilizable' },
+      { id: 5, titulo: 'Arrays: Listas de Datos' }
     ],
     nivel: 'Principiante',
     duracion: '4-5 horas',
-    prerequisito: 'HTML y CSS básico'
+    prerequisito: 'HTML y CSS basico'
   },
   {
     id: 'dom-manipulation',

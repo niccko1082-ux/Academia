@@ -207,18 +207,18 @@ const numeroSecreto = Math.floor(Math.random() * 100) + 1;
 let intentos = 0;
 let adivinado = false;
 
-console.log("🎯 Adivina el número entre 1 y 100");
+console.log(" Adivina el número entre 1 y 100");
 
 const adivinar = (numero) => {
   intentos++;
   
   if (numero === numeroSecreto) {
     adivinado = true;
-    return \`🎉 ¡GANASTE! Era \${numeroSecreto}. Intentos: \${intentos}\`;
+    return \` ¡GANASTE! Era \${numeroSecreto}. Intentos: \${intentos}\`;
   }
   
   if (numero < numeroSecreto) {
-    return "📈 Muy bajo. Intenta un número mayor.";
+    return " Muy bajo. Intenta un número mayor.";
   }
   
   return "📉 Muy alto. Intenta un número menor.";
@@ -232,7 +232,7 @@ console.log(adivinar(75));
     },
 
     'dom-manipulation': {
-        titulo: '📝 Lista de Tareas Interactiva',
+        titulo: ' Lista de Tareas Interactiva',
         descripcion: 'Construye una app de tareas completa con agregar, eliminar y marcar como completadas.',
         requisitos: [
             'Input para agregar nuevas tareas',
@@ -242,7 +242,7 @@ console.log(adivinar(75));
             'Contador de tareas pendientes',
             'Guardar en localStorage'
         ],
-        codigo: `// 📝 TODO APP
+        codigo: `//  TODO APP
 const form = document.querySelector('#todo-form');
 const input = document.querySelector('#todo-input');
 const lista = document.querySelector('#todo-list');
@@ -303,7 +303,7 @@ renderizar();`,
     },
 
     'bootstrap': {
-        titulo: '🖥️ Landing Page Responsive',
+        titulo: ' Landing Page Responsive',
         descripcion: 'Crea una landing page profesional con navbar, hero, servicios y formulario de contacto.',
         requisitos: [
             'Navbar responsive con toggle móvil',
@@ -313,7 +313,7 @@ renderizar();`,
             'Footer con redes sociales',
             'Totalmente responsive (mobile-first)'
         ],
-        codigo: `<!-- 🖥️ LANDING PAGE -->
+        codigo: `<!--  LANDING PAGE -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -377,41 +377,41 @@ export const estructuraArchivos = {
     titulo: '📁 Estructura de Archivos Frontend',
     descripcion: 'Aprende a organizar tus proyectos como un desarrollador profesional.',
     contenido: `
-📦 mi-proyecto/
-├── 📄 index.html          # Página principal (punto de entrada)
-├── 📄 package.json        # Dependencias y scripts npm
-├── 📄 vite.config.js      # Configuración de Vite (bundler)
-├── 📄 README.md           # Documentación del proyecto
+ mi-proyecto/
+├──  index.html          # Página principal (punto de entrada)
+├──  package.json        # Dependencias y scripts npm
+├──  vite.config.js      # Configuración de Vite (bundler)
+├──  README.md           # Documentación del proyecto
 │
 ├── 📂 src/                # Código fuente principal
-│   ├── 📄 main.jsx        # Punto de entrada JavaScript
-│   ├── 📄 App.jsx         # Componente raíz de React
+│   ├──  main.jsx        # Punto de entrada JavaScript
+│   ├──  App.jsx         # Componente raíz de React
 │   │
 │   ├── 📂 components/     # Componentes reutilizables
-│   │   ├── 📄 Header.jsx
-│   │   ├── 📄 Footer.jsx
-│   │   └── 📄 Button.jsx
+│   │   ├──  Header.jsx
+│   │   ├──  Footer.jsx
+│   │   └──  Button.jsx
 │   │
 │   ├── 📂 pages/          # Páginas/vistas de la app
-│   │   ├── 📄 Home.jsx
-│   │   └── 📄 About.jsx
+│   │   ├──  Home.jsx
+│   │   └──  About.jsx
 │   │
 │   ├── 📂 styles/         # Estilos CSS
-│   │   ├── 📄 main.css    # Estilos globales
-│   │   └── 📄 components.css
+│   │   ├──  main.css    # Estilos globales
+│   │   └──  components.css
 │   │
 │   ├── 📂 data/           # Datos estáticos, constantes
-│   │   └── 📄 productos.js
+│   │   └──  productos.js
 │   │
 │   ├── 📂 utils/          # Funciones utilitarias
-│   │   └── 📄 helpers.js
+│   │   └──  helpers.js
 │   │
 │   └── 📂 assets/         # Imágenes, fuentes, iconos
 │       ├── 📂 images/
 │       └── 📂 fonts/
 │
 ├── 📂 public/             # Archivos estáticos (no procesados)
-│   └── 📄 favicon.ico
+│   └──  favicon.ico
 │
 └── 📂 node_modules/       # Dependencias (no tocar, ignorar en git)
 `,
@@ -495,14 +495,14 @@ dist/
 // Cheatsheets por módulo
 export const cheatsheets = {
     'js-fundamentos': {
-        titulo: '📋 JavaScript Cheatsheet',
+        titulo: ' JavaScript Cheatsheet',
         secciones: [
             {
                 titulo: 'Variables',
                 items: [
                     'const nombre = "valor"  → No reasignable',
                     'let edad = 25           → Reasignable',
-                    'var antiguo = "malo"    → ❌ NUNCA USES'
+                    'var antiguo = "malo"    →  NUNCA USES'
                 ]
             },
             {
@@ -561,7 +561,7 @@ export const cheatsheets = {
     },
 
     'dom-manipulation': {
-        titulo: '📋 DOM Cheatsheet',
+        titulo: ' DOM Cheatsheet',
         secciones: [
             {
                 titulo: 'Selección',
@@ -605,7 +605,7 @@ export const cheatsheets = {
     },
 
     'bootstrap': {
-        titulo: '📋 Bootstrap Cheatsheet',
+        titulo: ' Bootstrap Cheatsheet',
         secciones: [
             {
                 titulo: 'Grid',

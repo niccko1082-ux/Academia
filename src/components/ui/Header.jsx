@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { Rocket, ArrowLeft, Star } from 'lucide-react';
+import { Rocket, ArrowLeft, Star, Trophy } from 'lucide-react';
 import { useProgress } from '../../context/ProgressContext';
 
 /**
@@ -29,7 +29,7 @@ const Header = ({ showBack = false, backTo = '/', backLabel = 'Volver' }) => {
                     </button>
                 )}
                 <div className="stat-badge nivel-badge" style={{ borderColor: 'var(--accent-purple)' }}>
-                    <span className="stat-emoji">🏆</span>
+                    <Trophy size={18} style={{ color: '#facc15' }} />
                     <span>{obtenerNivel()}</span>
                 </div>
                 <div className="stat-badge puntos-badge">

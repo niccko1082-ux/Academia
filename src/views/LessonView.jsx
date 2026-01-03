@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { BookOpen, Code, Lightbulb, Zap, Target, Eye, EyeOff, Trophy, CheckCircle, Sparkles, ArrowRight, ChevronRight } from 'lucide-react';
 import { modulos, contenidoModulos } from '../data/modulos';
 import { useProgress } from '../context/ProgressContext';
-import { Header, CodeSection, FormattedText, AIFab, PageLayout } from '../components/ui';
+import { Header, CodeSection, FormattedText, AIFab, PageLayout, InteractiveConsole } from '../components/ui';
 import AIAssistant from '../components/AIAssistant';
 
 /**
@@ -137,7 +137,7 @@ const LessonView = () => {
                                     <FormattedText text={contenidoActual.teoria} />
                                     <button className="ai-help-btn" onClick={() => toggleAIChat(`teoría de ${leccionInfo.titulo}`)}>
                                         <Sparkles size={16} />
-                                        <span>🤔 No entiendo, explícame diferente</span>
+                                        <span>No entiendo, explícame diferente</span>
                                     </button>
                                 </div>
                             </section>
@@ -155,7 +155,7 @@ const LessonView = () => {
                             <section className="content-section theory-animate" style={{ animationDelay: '0.2s' }}>
                                 <div className="section-header">
                                     <Lightbulb size={22} style={{ color: '#facc15' }} />
-                                    <h2>💡 Tips Pro</h2>
+                                    <h2>Tips Pro</h2>
                                 </div>
                                 <div className="section-body">
                                     <ul className="practicas-lista">
@@ -174,7 +174,7 @@ const LessonView = () => {
                             <section className="content-section">
                                 <div className="section-header">
                                     <Target size={22} style={{ color: '#a78bfa' }} />
-                                    <h2>🎯 Tu Reto</h2>
+                                    <h2>Tu Reto</h2>
                                 </div>
                                 <div className="section-body">
                                     <div style={{
@@ -186,21 +186,28 @@ const LessonView = () => {
                                         color: '#c4b5fd'
                                     }}>
                                         <p style={{ margin: 0 }}>
-                                            📋 Lee las instrucciones en los comentarios del código y completa el ejercicio.
+                                            Lee las instrucciones en los comentarios y completa el ejercicio.
                                             <br />
-                                            <small style={{ color: '#a1a1aa' }}>Tip: Usa el botón "Copiar" y pégalo en la consola (F12) para probarlo.</small>
+                                            <small style={{ color: '#a1a1aa' }}>Tip: Presiona Ctrl + Enter para ejecutar tu código.</small>
                                         </p>
                                     </div>
-                                    <CodeSection code={contenidoActual.ejercicio} language="javascript" />
+
+                                    <InteractiveConsole
+                                        initialCode={contenidoActual.ejercicio}
+                                        expectedOutput={contenidoActual.expectedOutput}
+                                        hints={contenidoActual.hints || []}
+                                        onSuccess={handleCompletar}
+                                        placeholder="// Escribe tu solución aquí..."
+                                    />
 
                                     <div className="button-group-exercise" style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem', flexWrap: 'wrap' }}>
                                         <button className="btn-solucion" onClick={() => setMostrarSolucion(prev => !prev)}>
                                             {mostrarSolucion ? <EyeOff size={18} /> : <Eye size={18} />}
-                                            {mostrarSolucion ? 'Ocultar Solución' : '👀 Revelar Solución'}
+                                            {mostrarSolucion ? 'Ocultar Solución' : 'Revelar Solución'}
                                         </button>
                                         <button className="ai-help-btn" style={{ marginBottom: 0, marginTop: 0 }} onClick={() => toggleAIChat(`el ejercicio de ${leccionInfo.titulo}`)}>
                                             <Sparkles size={16} />
-                                            <span>💡 Dame una pista</span>
+                                            <span>Dame una pista</span>
                                         </button>
                                     </div>
 
@@ -208,7 +215,7 @@ const LessonView = () => {
                                         <div className="solucion-container theory-animate" style={{ marginTop: '2rem' }}>
                                             <div className="section-header" style={{ padding: '1rem', background: 'rgba(16, 185, 129, 0.1)', borderRadius: '12px 12px 0 0' }}>
                                                 <CheckCircle size={20} style={{ color: '#10b981' }} />
-                                                <h4 style={{ color: '#10b981', margin: 0 }}>✅ Solución Sugerida</h4>
+                                                <h4 style={{ color: '#10b981', margin: 0 }}>Solución Sugerida</h4>
                                             </div>
                                             <CodeSection code={contenidoActual.solucion} language="javascript" />
                                         </div>
@@ -254,7 +261,7 @@ const LessonView = () => {
                             >
                                 {esUltimaLeccion ? (
                                     <>
-                                        <span>🎉 Volver al módulo</span>
+                                        <span>Volver al módulo</span>
                                         <ChevronRight size={20} />
                                     </>
                                 ) : (

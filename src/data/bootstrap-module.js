@@ -4,7 +4,7 @@ export const bootstrapModule = {
     titulo: '¿Qué es Bootstrap? + Instalación',
     teoria: `¡Bienvenido a Bootstrap! Es hora de hacer tus páginas bonitas RÁPIDO.
 
-🤔 ¿QUÉ ES BOOTSTRAP?
+ ¿QUÉ ES BOOTSTRAP?
 
 Bootstrap es una "caja de herramientas" de CSS y JavaScript ya creados.
 En vez de escribir TODO el CSS desde cero, usas clases que ya existen.
@@ -28,14 +28,14 @@ Con Bootstrap, solo escribes:
 
 ¡Ya está! Bootstrap tiene el CSS listo.
 
-🚀 ¿POR QUÉ USARLO?
+ ¿POR QUÉ USARLO?
 
 1. AHORRO DE TIEMPO - No escribes CSS básico
 2. RESPONSIVE - Se adapta a móvil/tablet/desktop automáticamente
 3. CONSISTENCIA - Todo se ve profesional y uniforme
 4. COMPATIBILIDAD - Funciona en todos los navegadores
 
-📦 CÓMO INSTALAR BOOTSTRAP
+ CÓMO INSTALAR BOOTSTRAP
 
 La forma más fácil es usar el CDN (un link que trae Bootstrap de internet).
 
@@ -45,9 +45,9 @@ Copia esto en tu <head>:
 Y esto antes de cerrar </body>:
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-💡 El CSS es obligatorio. El JS es opcional (solo para componentes interactivos).`,
+ El CSS es obligatorio. El JS es opcional (solo para componentes interactivos).`,
 
-    ejemplos: `<!-- 📄 PLANTILLA BÁSICA CON BOOTSTRAP -->
+    ejemplos: `<!--  PLANTILLA BÁSICA CON BOOTSTRAP -->
 
 <!DOCTYPE html>
 <html lang="es">
@@ -56,12 +56,12 @@ Y esto antes de cerrar </body>:
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Primera Página con Bootstrap</title>
     
-    <!-- 👇 CSS DE BOOTSTRAP (obligatorio) -->
+    <!--  CSS DE BOOTSTRAP (obligatorio) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     
-    <!-- 📦 Este div usa el contenedor de Bootstrap -->
+    <!--  Este div usa el contenedor de Bootstrap -->
     <div class="container">
         <h1 class="text-primary">¡Hola Bootstrap!</h1>
         <p class="lead">Este texto tiene una clase de Bootstrap.</p>
@@ -71,13 +71,13 @@ Y esto antes de cerrar </body>:
         <button class="btn btn-danger">Botón Rojo</button>
     </div>
     
-    <!-- 👇 JAVASCRIPT DE BOOTSTRAP (opcional, para componentes interactivos) -->
+    <!--  JAVASCRIPT DE BOOTSTRAP (opcional, para componentes interactivos) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 
 <!-- 
-🎯 EXPLICACIÓN DE LAS CLASES:
+ EXPLICACIÓN DE LAS CLASES:
 
 container    → Centra el contenido con márgenes automáticos
 text-primary → Color del texto azul (color principal de Bootstrap)
@@ -88,7 +88,7 @@ btn-success  → Botón verde
 btn-danger   → Botón rojo
 -->`,
 
-    ejercicio: `<!-- 🎯 EJERCICIO: Crea tu primera página con Bootstrap
+    ejercicio: `<!--  EJERCICIO: Crea tu primera página con Bootstrap
 
 1. Copia la plantilla básica de arriba
 2. Guárdala como index.html
@@ -135,7 +135,7 @@ btn-outline-primary, btn-outline-success, etc.
 </html>
 
 <!-- 
-💡 NOTA: mt-5 significa "margin-top: 5"
+ NOTA: mt-5 significa "margin-top: 5"
    Verás más de esto en la lección de utilidades
 -->`,
 
@@ -153,7 +153,7 @@ btn-outline-primary, btn-outline-success, etc.
     titulo: 'Sistema de Grid (Columnas)',
     teoria: `El GRID es la base de los layouts en Bootstrap.
 
-📐 CONCEPTO BÁSICO
+ CONCEPTO BÁSICO
 
 Bootstrap divide la pantalla en 12 COLUMNAS invisibles.
 Tú decides cuántas columnas ocupa cada elemento.
@@ -163,7 +163,7 @@ Tú decides cuántas columnas ocupa cada elemento.
 4 columnas = 33% del ancho
 3 columnas = 25% del ancho
 
-📦 ESTRUCTURA OBLIGATORIA
+ ESTRUCTURA OBLIGATORIA
 
 container → row → col
 
@@ -174,7 +174,7 @@ container → row → col
     </div>
 </div>
 
-📱 BREAKPOINTS (puntos de quiebre)
+ BREAKPOINTS (puntos de quiebre)
 
 Bootstrap cambia el diseño según el tamaño de pantalla:
 
@@ -193,11 +193,11 @@ Esto significa:
 • En tablet: 6 columnas (50%)
 • En desktop: 4 columnas (33%)
 
-🎯 PENSAR "MOBILE FIRST"
+ PENSAR "MOBILE FIRST"
 Bootstrap diseña primero para móvil.
 Las clases sin prefijo (col-12) aplican desde móvil hacia arriba.`,
 
-    ejemplos: `<!-- 📐 DOS COLUMNAS IGUALES -->
+    ejemplos: `<!--  DOS COLUMNAS IGUALES -->
 
 <div class="container">
     <div class="row">
@@ -210,7 +210,7 @@ Las clases sin prefijo (col-12) aplican desde móvil hacia arriba.`,
     </div>
 </div>
 
-<!-- 📐 TRES COLUMNAS -->
+<!--  TRES COLUMNAS -->
 
 <div class="container">
     <div class="row">
@@ -224,7 +224,7 @@ En móvil: cada una ocupa 100% (una debajo de otra)
 En tablet+: cada una ocupa 33% (las 3 en una fila)
 -->
 
-<!-- 📐 LAYOUT RESPONSIVE COMPLETO -->
+<!--  LAYOUT RESPONSIVE COMPLETO -->
 
 <div class="container">
     <div class="row">
@@ -244,7 +244,7 @@ En tablet+: cada una ocupa 33% (las 3 en una fila)
     </div>
 </div>
 
-<!-- 📐 ESPACIO ENTRE COLUMNAS (gap) -->
+<!--  ESPACIO ENTRE COLUMNAS (gap) -->
 
 <div class="container">
     <div class="row g-4">  <!-- g-4 = gap de tamaño 4 -->
@@ -255,7 +255,7 @@ En tablet+: cada una ocupa 33% (las 3 en una fila)
 
 <!-- g-0 a g-5 | gx-* (horizontal) | gy-* (vertical) -->
 
-<!-- 📐 CENTRAR UNA COLUMNA -->
+<!--  CENTRAR UNA COLUMNA -->
 
 <div class="container">
     <div class="row justify-content-center">
@@ -265,7 +265,7 @@ En tablet+: cada una ocupa 33% (las 3 en una fila)
     </div>
 </div>`,
 
-    ejercicio: `<!-- 🎯 EJERCICIO: Crear galería de productos responsive
+    ejercicio: `<!--  EJERCICIO: Crear galería de productos responsive
 
 Crea una galería que muestre:
 - 1 producto por fila en MÓVIL
@@ -360,7 +360,7 @@ PISTA: Usa las clases col-12 col-md-6 col-lg-3
 </div>
 
 <!-- 
-📋 EXPLICACIÓN:
+ EXPLICACIÓN:
 
 col-12     → 100% del ancho (1 por fila en móvil)
 col-md-6   → 50% del ancho (2 por fila en tablet)
@@ -386,7 +386,7 @@ fw-bold    → Font weight bold (negrita)
     titulo: 'Componentes: Cards, Buttons, Alerts',
     teoria: `Bootstrap incluye COMPONENTES listos para usar.
 
-🎴 CARDS (Tarjetas)
+ CARDS (Tarjetas)
 Las cards son contenedores versátiles para mostrar contenido.
 
 Estructura básica:
@@ -399,7 +399,7 @@ Estructura básica:
     </div>
 </div>
 
-🔘 BUTTONS (Botones)
+ BUTTONS (Botones)
 Clases: btn + btn-{color}
 
 Colores disponibles:
@@ -419,7 +419,7 @@ Tamaños:
 btn-lg → Grande
 btn-sm → Pequeño
 
-⚠️ ALERTS (Alertas)
+ ALERTS (Alertas)
 Mensajes de notificación para el usuario.
 
 <div class="alert alert-success">¡Éxito!</div>
@@ -427,13 +427,13 @@ Mensajes de notificación para el usuario.
 <div class="alert alert-warning">Advertencia</div>
 <div class="alert alert-info">Información</div>
 
-📝 BADGES (Etiquetas)
+ BADGES (Etiquetas)
 Pequeñas etiquetas para destacar información.
 
 <span class="badge bg-primary">Nuevo</span>
 <span class="badge bg-danger">5</span>`,
 
-    ejemplos: `<!-- 🎴 CARD COMPLETA -->
+    ejemplos: `<!--  CARD COMPLETA -->
 
 <div class="card" style="width: 18rem;">
     <img src="producto.jpg" class="card-img-top" alt="Producto">
@@ -447,7 +447,7 @@ Pequeñas etiquetas para destacar información.
     </div>
 </div>
 
-<!-- 🎴 CARD HORIZONTAL -->
+<!--  CARD HORIZONTAL -->
 
 <div class="card mb-3" style="max-width: 540px;">
     <div class="row g-0">
@@ -463,7 +463,7 @@ Pequeñas etiquetas para destacar información.
     </div>
 </div>
 
-<!-- 🔘 GRUPO DE BOTONES -->
+<!--  GRUPO DE BOTONES -->
 
 <div class="btn-group" role="group">
     <button class="btn btn-primary">Izquierda</button>
@@ -471,27 +471,27 @@ Pequeñas etiquetas para destacar información.
     <button class="btn btn-primary">Derecha</button>
 </div>
 
-<!-- 🔘 BOTONES DE DIFERENTES TAMAÑOS -->
+<!--  BOTONES DE DIFERENTES TAMAÑOS -->
 
 <button class="btn btn-primary btn-sm">Pequeño</button>
 <button class="btn btn-primary">Normal</button>
 <button class="btn btn-primary btn-lg">Grande</button>
 
-<!-- ⚠️ ALERT DISMISSIBLE (con X para cerrar) -->
+<!--  ALERT DISMISSIBLE (con X para cerrar) -->
 
 <div class="alert alert-success alert-dismissible fade show" role="alert">
     <strong>¡Éxito!</strong> Tu pedido ha sido procesado.
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
 </div>
 
-<!-- ⚠️ ALERT CON ICONO Y TEXTO -->
+<!--  ALERT CON ICONO Y TEXTO -->
 
 <div class="alert alert-danger d-flex align-items-center" role="alert">
-    <span class="me-2">⚠️</span>
+    <span class="me-2"></span>
     <div>Ha ocurrido un error. Por favor intenta de nuevo.</div>
 </div>
 
-<!-- 📝 BADGES EN DIFERENTES LUGARES -->
+<!--  BADGES EN DIFERENTES LUGARES -->
 
 <h3>Notificaciones <span class="badge bg-danger">5</span></h3>
 
@@ -499,7 +499,7 @@ Pequeñas etiquetas para destacar información.
     Carrito <span class="badge bg-light text-dark">3</span>
 </button>`,
 
-    ejercicio: `<!-- 🎯 EJERCICIO: Crear tarjeta de perfil de usuario
+    ejercicio: `<!--  EJERCICIO: Crear tarjeta de perfil de usuario
 
 Crea una card que muestre:
 - Imagen de perfil circular
@@ -552,7 +552,7 @@ PISTAS:
         
         <!-- Badge de estado -->
         <span class="badge bg-success mb-3">
-            🟢 Activo
+             Activo
         </span>
         
         <!-- Estadísticas -->
@@ -574,10 +574,10 @@ PISTAS:
         <!-- Botones -->
         <div class="d-grid gap-2">
             <button class="btn btn-primary">
-                ➕ Seguir
+                 Seguir
             </button>
             <button class="btn btn-outline-secondary">
-                ✉️ Mensaje
+                 Mensaje
             </button>
         </div>
         
@@ -585,7 +585,7 @@ PISTAS:
 </div>
 
 <!-- 
-📋 CLASES USADAS:
+ CLASES USADAS:
 
 rounded-circle  → Imagen circular
 mb-3            → Margin bottom nivel 3
@@ -608,7 +608,7 @@ gap-2           → Espacio entre botones
     titulo: 'Utilidades: Espaciado, Colores, Flexbox',
     teoria: `Las UTILIDADES son clases pequeñas para ajustes rápidos.
 
-📐 ESPACIADO (Margin y Padding)
+ ESPACIADO (Margin y Padding)
 
 Formato: {propiedad}{lado}-{tamaño}
 
@@ -633,7 +633,7 @@ px-4  → padding-left y padding-right: 1.5rem
 mb-0  → margin-bottom: 0
 p-5   → padding en todos los lados: 3rem
 
-🎨 COLORES
+ COLORES
 
 Texto: text-{color}
 Fondo: bg-{color}
@@ -644,7 +644,7 @@ text-primary  → Texto azul
 bg-dark       → Fondo negro
 text-white    → Texto blanco
 
-📝 TEXTO
+ TEXTO
 
 text-center   → Centrar texto
 text-start    → Alinear izquierda
@@ -654,7 +654,7 @@ fw-light      → Delgada
 fs-1 a fs-6   → Tamaño de fuente (1 = más grande)
 text-uppercase → MAYÚSCULAS
 
-📦 DISPLAY Y FLEXBOX
+ DISPLAY Y FLEXBOX
 
 d-none        → Ocultar
 d-block       → Mostrar como bloque
@@ -665,7 +665,7 @@ justify-content-center  → Centrar horizontalmente
 align-items-center      → Centrar verticalmente
 flex-column             → Dirección vertical`,
 
-    ejemplos: `<!-- 📐 ESPACIADO -->
+    ejemplos: `<!--  ESPACIADO -->
 
 <div class="p-4 mb-3 bg-light">
     Padding 4, margin-bottom 3, fondo gris
@@ -675,7 +675,7 @@ flex-column             → Dirección vertical`,
     Margin top 5, centrado horizontalmente
 </div>
 
-<!-- 🎨 COLORES -->
+<!--  COLORES -->
 
 <p class="text-primary">Texto azul primario</p>
 <p class="text-success">Texto verde éxito</p>
@@ -690,14 +690,14 @@ flex-column             → Dirección vertical`,
     Fondo amarillo, texto negro
 </div>
 
-<!-- 📝 TEXTO -->
+<!--  TEXTO -->
 
 <h1 class="text-center">Título centrado</h1>
 <p class="fw-bold">Texto en negrita</p>
 <p class="fs-4">Texto más grande</p>
 <p class="text-uppercase text-muted">mayúsculas gris</p>
 
-<!-- 📦 FLEXBOX -->
+<!--  FLEXBOX -->
 
 <!-- Centrar horizontal y verticalmente -->
 <div class="d-flex justify-content-center align-items-center" style="height: 200px;">
@@ -717,7 +717,7 @@ flex-column             → Dirección vertical`,
     <button class="btn btn-primary">Tres</button>
 </div>
 
-<!-- 📱 CLASES RESPONSIVE -->
+<!--  CLASES RESPONSIVE -->
 
 <!-- Solo visible en tablet+ -->
 <div class="d-none d-md-block">
@@ -734,7 +734,7 @@ flex-column             → Dirección vertical`,
     Padding: 2 en móvil, 4 en tablet, 5 en desktop
 </div>`,
 
-    ejercicio: `<!-- 🎯 EJERCICIO: Crear un footer responsive
+    ejercicio: `<!--  EJERCICIO: Crear un footer responsive
 
 Requisitos:
 - Fondo oscuro (bg-dark) con texto claro (text-light)
@@ -811,10 +811,10 @@ PISTAS:
             <div class="col-12 col-md-4 text-center text-md-end">
                 <h6 class="text-uppercase fw-bold mb-3">Síguenos</h6>
                 <div class="d-flex justify-content-center justify-content-md-end gap-3">
-                    <a href="#" class="text-light fs-4">📘</a>
-                    <a href="#" class="text-light fs-4">🐦</a>
-                    <a href="#" class="text-light fs-4">📸</a>
-                    <a href="#" class="text-light fs-4">💼</a>
+                    <a href="#" class="text-light fs-4"></a>
+                    <a href="#" class="text-light fs-4"></a>
+                    <a href="#" class="text-light fs-4"></a>
+                    <a href="#" class="text-light fs-4"></a>
                 </div>
             </div>
             
@@ -830,7 +830,7 @@ PISTAS:
 </footer>
 
 <!-- 
-📋 UTILIDADES USADAS:
+ UTILIDADES USADAS:
 
 py-5            → Padding vertical grande
 gy-4            → Gap vertical entre columnas

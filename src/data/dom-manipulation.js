@@ -4,7 +4,7 @@ export const domManipulation = {
     titulo: 'Introducción al DOM',
     teoria: `¡Bienvenido al DOM! Aquí es donde JavaScript y HTML se encuentran.
 
-🤔 ¿QUÉ ES EL DOM?
+ ¿QUÉ ES EL DOM?
 
 DOM significa "Document Object Model" (Modelo de Objeto del Documento).
 
@@ -17,7 +17,7 @@ Imagina que tu página HTML es como un árbol familiar:
 El DOM es la forma en que JavaScript "ve" este árbol.
 Le permite encontrar, modificar, agregar y eliminar elementos HTML.
 
-📋 EJEMPLO VISUAL
+ EJEMPLO VISUAL
 
 Tu HTML:
 \<body\>
@@ -27,11 +27,11 @@ Tu HTML:
 
 JavaScript lo ve como:
 document
-  └── body
-       ├── h1 → "Título"
-       └── p → "Párrafo"
+   body
+        h1 → "Título"
+        p → "Párrafo"
 
-🎯 ¿PARA QUÉ SIRVE?
+ ¿PARA QUÉ SIRVE?
 
 • Cambiar el texto de un elemento
 • Cambiar colores, tamaños, estilos
@@ -40,7 +40,7 @@ document
 • Eliminar elementos
 • Responder a clics y otros eventos
 
-🔍 ENCONTRAR ELEMENTOS
+ ENCONTRAR ELEMENTOS
 
 El primer paso SIEMPRE es encontrar el elemento que quieres modificar.
 
@@ -54,7 +54,7 @@ Los selectores son IGUALES a los de CSS:
 • "p"          → Todos los \<p\>
 • "div.card"   → Divs con clase "card"`,
 
-    ejemplos: `<!-- 📄 HTML de ejemplo -->
+    ejemplos: `<!--  HTML de ejemplo -->
 <!DOCTYPE html>
 <html>
 <body>
@@ -67,9 +67,9 @@ Los selectores son IGUALES a los de CSS:
 </body>
 </html>
 
-// 📄 script.js
+//  script.js
 
-// 🔍 ENCONTRAR UN ELEMENTO (el primero que coincida)
+//  ENCONTRAR UN ELEMENTO (el primero que coincida)
 
 const titulo = document.querySelector("#titulo");
 console.log(titulo); // Muestra: <h1 id="titulo">Mi Página</h1>
@@ -80,13 +80,13 @@ console.log(primerParrafo); // Muestra el PRIMER párrafo
 const boton = document.querySelector("#miBoton");
 console.log(boton);
 
-// 🔍 ENCONTRAR VARIOS ELEMENTOS (todos los que coincidan)
+//  ENCONTRAR VARIOS ELEMENTOS (todos los que coincidan)
 
 const todosLosParrafos = document.querySelectorAll(".descripcion");
 console.log(todosLosParrafos); // NodeList con 2 párrafos
 console.log(todosLosParrafos.length); // 2
 
-// 🔄 RECORRER VARIOS ELEMENTOS
+//  RECORRER VARIOS ELEMENTOS
 
 todosLosParrafos.forEach((parrafo, indice) => {
     console.log(\`Párrafo \${indice + 1}:\`, parrafo.textContent);
@@ -94,26 +94,26 @@ todosLosParrafos.forEach((parrafo, indice) => {
 // Párrafo 1: Este es un párrafo.
 // Párrafo 2: Este es otro párrafo.
 
-// ✅ VERIFICAR SI UN ELEMENTO EXISTE
+//  VERIFICAR SI UN ELEMENTO EXISTE
 
 const elementoQueNoExiste = document.querySelector("#noExiste");
 console.log(elementoQueNoExiste); // null
 
-// ⚠️ Siempre verifica antes de usar
+//  Siempre verifica antes de usar
 if (elementoQueNoExiste) {
     console.log("Encontrado");
 } else {
     console.log("No existe"); // ← Este se ejecuta
 }
 
-// 💡 TIP: Guarda los elementos en variables para no buscarlos cada vez
+//  TIP: Guarda los elementos en variables para no buscarlos cada vez
 const elementos = {
     titulo: document.querySelector("#titulo"),
     parrafos: document.querySelectorAll(".descripcion"),
     boton: document.querySelector("#miBoton")
 };`,
 
-    ejercicio: `<!-- 🎯 EJERCICIO: Practica seleccionar elementos
+    ejercicio: `<!--  EJERCICIO: Practica seleccionar elementos
 
 Imagina este HTML: -->
 
@@ -129,7 +129,7 @@ Imagina este HTML: -->
     <button class="btn btn-primary">Buscar</button>
 </main>
 
-// 📝 Tu tarea: Escribe los selectores correctos
+//  Tu tarea: Escribe los selectores correctos
 
 // 1. Selecciona el nav por su ID
 const nav = document.querySelector(""); // ← Completa
@@ -152,7 +152,7 @@ const boton = document.querySelector(""); // ← Completa
 // Muestra cuántos enlaces hay
 console.log("Total de enlaces:", enlaces.length);`,
 
-    solucion: `// ✅ SOLUCIÓN
+    solucion: `//  SOLUCIÓN
 
 // 1. Nav por ID (usa #)
 const nav = document.querySelector("#navegacion");
@@ -182,7 +182,7 @@ console.log("Título:", titulo.textContent);
 console.log("Input:", inputBuscar.placeholder);
 console.log("Botón:", boton.textContent);
 
-// 💡 SELECTORES COMUNES:
+//  SELECTORES COMUNES:
 // #id        → Elemento con ese ID
 // .clase     → Elementos con esa clase
 // etiqueta   → Elementos de esa etiqueta (p, div, h1)
@@ -202,7 +202,7 @@ console.log("Botón:", boton.textContent);
     titulo: 'Modificar Contenido y Estilos',
     teoria: `Una vez que encuentras un elemento, puedes modificarlo.
 
-📝 CAMBIAR TEXTO
+ CAMBIAR TEXTO
 
 .textContent → Cambia o lee el TEXTO de un elemento
 Es la forma más segura de trabajar con texto.
@@ -211,11 +211,11 @@ Ejemplo:
 titulo.textContent = "Nuevo título";
 console.log(titulo.textContent); // "Nuevo título"
 
-⚠️ También existe .innerHTML pero es MENOS SEGURO
+ También existe .innerHTML pero es MENOS SEGURO
 porque puede ejecutar código malicioso si viene de usuarios.
 Úsalo solo cuando necesites insertar HTML.
 
-🎨 CAMBIAR ESTILOS
+ CAMBIAR ESTILOS
 
 Puedes cambiar cualquier estilo CSS usando:
 elemento.style.propiedad = "valor";
@@ -230,7 +230,7 @@ titulo.style.color = "red";
 titulo.style.fontSize = "24px";
 titulo.style.backgroundColor = "#f0f0f0";
 
-🏷️ TRABAJAR CON CLASES (mejor que estilos inline)
+ TRABAJAR CON CLASES (mejor que estilos inline)
 
 Es MEJOR agregar/quitar clases CSS que cambiar estilos directamente.
 
@@ -244,14 +244,14 @@ boton.classList.add("activo");
 boton.classList.remove("desactivado");
 boton.classList.toggle("visible"); // Alterna`,
 
-    ejemplos: `// 📄 HTML
+    ejemplos: `//  HTML
 // <h1 id="titulo">Texto original</h1>
 // <button id="boton" class="btn">Click</button>
 
 const titulo = document.querySelector("#titulo");
 const boton = document.querySelector("#boton");
 
-// 📝 CAMBIAR TEXTO
+//  CAMBIAR TEXTO
 
 // Leer el texto actual
 console.log(titulo.textContent); // "Texto original"
@@ -264,7 +264,7 @@ console.log(titulo.textContent); // "¡Nuevo título!"
 const nombreUsuario = "María";
 titulo.textContent = \`Bienvenida, \${nombreUsuario}\`;
 
-// 🎨 CAMBIAR ESTILOS DIRECTAMENTE
+//  CAMBIAR ESTILOS DIRECTAMENTE
 
 titulo.style.color = "#8b5cf6";        // Color morado
 titulo.style.fontSize = "2rem";         // Tamaño
@@ -272,7 +272,7 @@ titulo.style.textAlign = "center";      // Centrar
 titulo.style.padding = "1rem";          // Espaciado
 titulo.style.backgroundColor = "rgba(139, 92, 246, 0.1)";
 
-// 🏷️ TRABAJAR CON CLASES (recomendado)
+//  TRABAJAR CON CLASES (recomendado)
 
 // Agregar clase
 boton.classList.add("activo");
@@ -292,7 +292,7 @@ if (boton.classList.contains("activo")) {
 // Ver todas las clases
 console.log(boton.classList); // DOMTokenList ["btn", "activo", ...]
 
-// 📋 CAMBIAR ATRIBUTOS
+//  CAMBIAR ATRIBUTOS
 
 const imagen = document.querySelector("img");
 const enlace = document.querySelector("a");
@@ -310,7 +310,7 @@ boton.dataset.id = "123";
 boton.dataset.accion = "comprar";
 // Crea: <button data-id="123" data-accion="comprar">`,
 
-    ejercicio: `<!-- 🎯 EJERCICIO: Actualizar una tarjeta de producto -->
+    ejercicio: `<!--  EJERCICIO: Actualizar una tarjeta de producto -->
 
 <div id="producto" class="card">
     <img src="placeholder.jpg" alt="Producto" id="imagen">
@@ -326,7 +326,7 @@ boton.dataset.accion = "comprar";
     .badge-agotado { background: #ef4444; color: white; }
 </style>
 
-// 📝 Actualiza la tarjeta con estos datos:
+//  Actualiza la tarjeta con estos datos:
 
 const datosProducto = {
     nombre: "Auriculares Bluetooth",
@@ -358,10 +358,10 @@ const estadoProducto = document.querySelector("#estado");
 // Tu código aquí
 
 // 6. Cambia el texto del estado según disponibilidad
-//    "🎉 ¡En oferta!" o "⛔ Agotado" o "✅ Disponible"
+//    " ¡En oferta!" o " Agotado" o " Disponible"
 // Tu código aquí`,
 
-    solucion: `// ✅ SOLUCIÓN
+    solucion: `//  SOLUCIÓN
 
 const datosProducto = {
     nombre: "Auriculares Bluetooth",
@@ -397,17 +397,17 @@ if (datosProducto.enOferta) {
 
 // 6. Actualizar estado
 if (datosProducto.agotado) {
-    estadoProducto.textContent = "⛔ Agotado";
+    estadoProducto.textContent = " Agotado";
     estadoProducto.classList.add("badge-agotado");
     card.classList.add("agotado");
 } else if (datosProducto.enOferta) {
-    estadoProducto.textContent = "🎉 ¡En oferta!";
+    estadoProducto.textContent = " ¡En oferta!";
     estadoProducto.classList.add("badge-oferta");
 } else {
-    estadoProducto.textContent = "✅ Disponible";
+    estadoProducto.textContent = " Disponible";
 }
 
-console.log("✅ Producto actualizado:", datosProducto.nombre);`,
+console.log(" Producto actualizado:", datosProducto.nombre);`,
 
     buenasPracticas: [
       'Usa textContent para texto (seguro contra XSS)',
@@ -423,14 +423,14 @@ console.log("✅ Producto actualizado:", datosProducto.nombre);`,
     titulo: 'Eventos',
     teoria: `Los EVENTOS hacen tu página INTERACTIVA.
 
-🎯 ¿QUÉ ES UN EVENTO?
+ ¿QUÉ ES UN EVENTO?
 Es algo que "pasa" en la página:
 • El usuario hace clic en un botón
 • El usuario escribe en un input
 • El usuario mueve el mouse
 • La página termina de cargar
 
-📋 EVENTOS MÁS COMUNES
+ EVENTOS MÁS COMUNES
 
 MOUSE:
 • click     → Clic del mouse
@@ -449,7 +449,7 @@ FORMULARIOS:
 • focus   → El campo recibe el foco
 • blur    → El campo pierde el foco
 
-🔧 CÓMO AGREGAR UN EVENTO
+ CÓMO AGREGAR UN EVENTO
 
 elemento.addEventListener("evento", función);
 
@@ -458,7 +458,7 @@ boton.addEventListener("click", () => {
     console.log("¡Hiciste clic!");
 });
 
-📦 EL OBJETO EVENT
+ EL OBJETO EVENT
 
 Cuando agregas un evento, la función recibe información sobre él:
 
@@ -470,7 +470,7 @@ input.addEventListener("input", (event) => {
     console.log(event.target.value); // Lo que escribió el usuario
 });
 
-⚠️ PREVENIR COMPORTAMIENTO POR DEFECTO
+ PREVENIR COMPORTAMIENTO POR DEFECTO
 
 Algunos elementos tienen comportamientos automáticos:
 • \<form\> recarga la página al enviar
@@ -479,7 +479,7 @@ Algunos elementos tienen comportamientos automáticos:
 Para evitarlo:
 event.preventDefault();`,
 
-    ejemplos: `// 📄 HTML
+    ejemplos: `//  HTML
 // <button id="miBoton">Haz clic</button>
 // <input id="miInput" type="text" placeholder="Escribe...">
 // <form id="miForm">...</form>
@@ -488,14 +488,14 @@ const boton = document.querySelector("#miBoton");
 const input = document.querySelector("#miInput");
 const formulario = document.querySelector("#miForm");
 
-// 🖱️ EVENTO CLICK
+//  EVENTO CLICK
 
 boton.addEventListener("click", () => {
     console.log("¡Clic!");
     boton.textContent = "¡Clickeado!";
 });
 
-// 🖱️ CLICK CON INFORMACIÓN DEL EVENTO
+//  CLICK CON INFORMACIÓN DEL EVENTO
 
 boton.addEventListener("click", (event) => {
     console.log("Elemento clickeado:", event.target);
@@ -503,7 +503,7 @@ boton.addEventListener("click", (event) => {
     console.log("Posición Y:", event.clientY);
 });
 
-// ⌨️ EVENTO INPUT (tiempo real mientras escribe)
+//  EVENTO INPUT (tiempo real mientras escribe)
 
 input.addEventListener("input", (event) => {
     const texto = event.target.value;
@@ -511,7 +511,7 @@ input.addEventListener("input", (event) => {
     console.log("Caracteres:", texto.length);
 });
 
-// ⌨️ EVENTO KEYDOWN (detectar teclas específicas)
+//  EVENTO KEYDOWN (detectar teclas específicas)
 
 input.addEventListener("keydown", (event) => {
     console.log("Tecla presionada:", event.key);
@@ -526,17 +526,17 @@ input.addEventListener("keydown", (event) => {
     }
 });
 
-// 📝 EVENTO SUBMIT (enviar formulario)
+//  EVENTO SUBMIT (enviar formulario)
 
 formulario.addEventListener("submit", (event) => {
-    // ⚠️ Evitar que recargue la página
+    //  Evitar que recargue la página
     event.preventDefault();
     
     console.log("Formulario enviado");
     // Aquí procesas los datos del formulario
 });
 
-// 🖱️ HOVER (mouseenter y mouseleave)
+//  HOVER (mouseenter y mouseleave)
 
 boton.addEventListener("mouseenter", () => {
     boton.style.transform = "scale(1.1)";
@@ -548,7 +548,7 @@ boton.addEventListener("mouseleave", () => {
     boton.style.backgroundColor = "";
 });
 
-// 🔄 MÚLTIPLES ELEMENTOS (mismo evento para varios)
+//  MÚLTIPLES ELEMENTOS (mismo evento para varios)
 
 const botones = document.querySelectorAll(".btn");
 
@@ -559,16 +559,16 @@ botones.forEach(btn => {
     });
 });`,
 
-    ejercicio: `<!-- 🎯 EJERCICIO: Crear un contador interactivo -->
+    ejercicio: `<!--  EJERCICIO: Crear un contador interactivo -->
 
 <div id="app">
     <h2 id="numero">0</h2>
-    <button id="restar">➖ Restar</button>
-    <button id="reset">🔄 Reset</button>
-    <button id="sumar">➕ Sumar</button>
+    <button id="restar"> Restar</button>
+    <button id="reset"> Reset</button>
+    <button id="sumar"> Sumar</button>
 </div>
 
-// 📝 Tu tarea:
+//  Tu tarea:
 
 // 1. Selecciona los elementos
 const numeroDisplay = document.querySelector("#numero");
@@ -604,7 +604,7 @@ const actualizarDisplay = () => {
 
 // Tu código aquí`,
 
-    solucion: `// ✅ SOLUCIÓN
+    solucion: `//  SOLUCIÓN
 
 // 1. Seleccionar elementos
 const numeroDisplay = document.querySelector("#numero");
@@ -654,7 +654,7 @@ btnReset.addEventListener("click", () => {
     actualizarDisplay();
 });
 
-// 🎁 BONUS: También funciona con teclado
+//  BONUS: También funciona con teclado
 document.addEventListener("keydown", (event) => {
     if (event.key === "ArrowUp" || event.key === "+") {
         contador++;
@@ -668,7 +668,7 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
-console.log("🎮 Contador listo. Usa los botones o las flechas ↑↓");`,
+console.log(" Contador listo. Usa los botones o las flechas ↑↓");`,
 
     buenasPracticas: [
       'Usa addEventListener, nunca onclick en HTML',
@@ -684,24 +684,24 @@ console.log("🎮 Contador listo. Usa los botones o las flechas ↑↓");`,
     titulo: 'Crear Elementos Dinámicamente',
     teoria: `Puedes crear elementos HTML desde JavaScript y agregarlos a la página.
 
-🎯 ¿PARA QUÉ SIRVE?
+ ¿PARA QUÉ SIRVE?
 • Agregar items a una lista
 • Crear tarjetas de productos
 • Mostrar mensajes de notificación
 • Generar contenido desde datos
 
-🔨 CREAR UN ELEMENTO
+ CREAR UN ELEMENTO
 
 const nuevoDiv = document.createElement("div");
 // Esto crea: <div></div> (vacío, no está en la página aún)
 
-📝 CONFIGURAR EL ELEMENTO
+ CONFIGURAR EL ELEMENTO
 
 nuevoDiv.textContent = "Hola";
 nuevoDiv.className = "mi-clase";
 nuevoDiv.id = "mi-id";
 
-📍 AGREGARLO A LA PÁGINA
+ AGREGARLO A LA PÁGINA
 
 const contenedor = document.querySelector("#contenedor");
 contenedor.appendChild(nuevoDiv);  // Lo agrega al final
@@ -711,13 +711,13 @@ contenedor.prepend(nuevoDiv);      // Al inicio
 contenedor.before(nuevoDiv);       // Antes del contenedor
 contenedor.after(nuevoDiv);        // Después del contenedor
 
-🗑️ ELIMINAR UN ELEMENTO
+ ELIMINAR UN ELEMENTO
 
 elemento.remove();   // Forma moderna
 // o
 padre.removeChild(elemento); // Forma antigua
 
-💡 ALTERNATIVA: innerHTML con template literals
+ ALTERNATIVA: innerHTML con template literals
 Para estructuras complejas, a veces es más fácil:
 
 contenedor.innerHTML = \`
@@ -727,10 +727,10 @@ contenedor.innerHTML = \`
     </div>
 \`;
 
-⚠️ Pero cuidado: innerHTML reemplaza TODO el contenido.
+ Pero cuidado: innerHTML reemplaza TODO el contenido.
 Para agregar sin reemplazar, usa createElement.`,
 
-    ejemplos: `// 📦 CREAR ELEMENTO SIMPLE
+    ejemplos: `//  CREAR ELEMENTO SIMPLE
 
 const nuevoParrafo = document.createElement("p");
 nuevoParrafo.textContent = "Este es un párrafo nuevo";
@@ -739,7 +739,7 @@ nuevoParrafo.className = "parrafo-destacado";
 const contenedor = document.querySelector("#app");
 contenedor.appendChild(nuevoParrafo);
 
-// 🎴 CREAR ESTRUCTURA MÁS COMPLEJA
+//  CREAR ESTRUCTURA MÁS COMPLEJA
 
 const crearTarjeta = (titulo, descripcion, precio) => {
     // Crear el contenedor principal
@@ -769,7 +769,7 @@ const crearTarjeta = (titulo, descripcion, precio) => {
 const miTarjeta = crearTarjeta("Laptop", "Core i7 16GB RAM", 1200);
 contenedor.appendChild(miTarjeta);
 
-// 🎯 FORMA MÁS CORTA CON innerHTML
+//  FORMA MÁS CORTA CON innerHTML
 
 const crearTarjetaRapido = (titulo, descripcion, precio) => {
     const card = document.createElement("div");
@@ -790,7 +790,7 @@ const crearTarjetaRapido = (titulo, descripcion, precio) => {
     return card;
 };
 
-// 📋 CREAR LISTA DESDE UN ARRAY
+//  CREAR LISTA DESDE UN ARRAY
 
 const productos = ["Laptop", "Mouse", "Teclado", "Monitor"];
 const lista = document.querySelector("#lista-productos");
@@ -801,7 +801,7 @@ productos.forEach((producto, index) => {
     lista.appendChild(li);
 });
 
-// 🗑️ ELIMINAR ELEMENTO
+//  ELIMINAR ELEMENTO
 
 const btnEliminar = document.querySelector("#eliminar");
 btnEliminar.addEventListener("click", () => {
@@ -811,7 +811,7 @@ btnEliminar.addEventListener("click", () => {
     }
 });`,
 
-    ejercicio: `<!-- 🎯 EJERCICIO: Lista de tareas dinámica -->
+    ejercicio: `<!--  EJERCICIO: Lista de tareas dinámica -->
 
 <div id="todo-app">
     <input id="nueva-tarea" type="text" placeholder="Nueva tarea...">
@@ -820,7 +820,7 @@ btnEliminar.addEventListener("click", () => {
     <p id="contador">0 tareas</p>
 </div>
 
-// 📝 Tu tarea:
+//  Tu tarea:
 
 // 1. Selecciona los elementos
 const inputTarea = document.querySelector("#nueva-tarea");
@@ -837,9 +837,9 @@ const actualizarContador = () => {
 
 // 3. Crea una función crearTarea(texto) que:
 //    - Cree un <li> con el texto
-//    - Agregue un botón "❌" para eliminar
+//    - Agregue un botón "" para eliminar
 //    - Al hacer clic en la tarea, táchala (toggle clase "completada")
-//    - Al hacer clic en ❌, elimine la tarea
+//    - Al hacer clic en , elimine la tarea
 
 const crearTarea = (texto) => {
     // Tu código aquí
@@ -856,7 +856,7 @@ const crearTarea = (texto) => {
 
 // Tu código aquí`,
 
-    solucion: `// ✅ SOLUCIÓN
+    solucion: `//  SOLUCIÓN
 
 // 1. Seleccionar elementos
 const inputTarea = document.querySelector("#nueva-tarea");
@@ -883,7 +883,7 @@ const crearTarea = (texto) => {
     
     // Botón de eliminar
     const btnEliminar = document.createElement("button");
-    btnEliminar.textContent = "❌";
+    btnEliminar.textContent = "";
     btnEliminar.className = "btn-eliminar";
     
     // Evento: clic en el texto = marcar/desmarcar
@@ -892,7 +892,7 @@ const crearTarea = (texto) => {
         actualizarContador();
     });
     
-    // Evento: clic en ❌ = eliminar
+    // Evento: clic en  = eliminar
     btnEliminar.addEventListener("click", () => {
         li.remove();
         actualizarContador();
@@ -937,7 +937,7 @@ inputTarea.addEventListener("keydown", (event) => {
 // Inicializar contador
 actualizarContador();
 
-console.log("✅ App de tareas lista");`,
+console.log(" App de tareas lista");`,
 
     buenasPracticas: [
       'Crea funciones reutilizables para crear elementos',
